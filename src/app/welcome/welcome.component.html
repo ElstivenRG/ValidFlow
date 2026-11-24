@@ -1,0 +1,10 @@
+<ActionBar title="Explora"></ActionBar>
+<GridLayout rows="*,auto" class="welcome">
+  <StackLayout row="0" verticalAlignment="middle" padding="28">
+    <Image src="~/assets/mountains.png" height="220" stretch="aspectFill" class="hero"></Image>
+    <Label text="EXPLORA COLOMBIA" class="eyebrow" marginTop="28"></Label>
+    <Label text="Tu próximo viaje&#10;empieza aquí." class="headline" textWrap="true"></Label>
+    <Label text="Descubre destinos, crea tu lista de favoritos y personaliza cada plan." class="subtitle" textWrap="true"></Label>
+  </StackLayout>
+  <Button row="1" text="Explorar destinos →" class="primary" margin="24" (tap)="start()"></Button>
+</GridLayout>

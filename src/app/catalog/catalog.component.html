@@ -1,0 +1,27 @@
+<ActionBar title="Descubre destinos"></ActionBar>
+<GridLayout rows="auto,auto,*" class="screen">
+  <StackLayout row="0" padding="16 20 8">
+    <Label text="¿A dónde vamos?" class="title"></Label>
+    <TextField hint="Buscar nombre, categoría o descripción" accessibilityLabel="Buscar destinos"
+      [(ngModel)]="query" (ngModelChange)="filter($event)" autocorrect="false" class="input"></TextField>
+  </StackLayout>
+  <StackLayout row="1" padding="0 20 12">
+    <Label [text]="items.length + ' resultados · desliza hacia abajo para agregar un plan'" class="muted" textWrap="true"></Label>
+    <Label *ngIf="items.length === 0" text="Sin coincidencias. Cambia la búsqueda o actualiza la lista." textWrap="true" class="subtitle"></Label>
+  </StackLayout>
+  <PullToRefresh row="2" (refresh)="refresh($event)" indicatorColor="#0F766E" indicatorFillColor="#FFFFFF">
+    <ListView [items]="items" separatorColor="transparent" class="list">
+      <ng-template let-item="item">
+        <FlexboxLayout flexDirection="row" alignItems="center" class="card">
+          <Image [src]="item.image" width="74" height="86" stretch="aspectFill" class="thumbnail"></Image>
+          <StackLayout flexGrow="1" flexShrink="1" padding="0 12" (tap)="open(item)" accessibilityRole="button" [accessibilityLabel]="'Abrir ' + item.name">
+            <Label [text]="item.category" class="eyebrow"></Label>
+            <Label [text]="item.name" class="item-title" textWrap="true"></Label>
+            <Label [text]="item.favorite ? '★ En tus favoritos' : 'Ver y editar →'" class="muted"></Label>
+          </StackLayout>
+          <Button text="⋮" width="48" height="48" class="icon" accessibilityLabel="Cambiar categoría" (tap)="chooseCategory(item)"></Button>
+        </FlexboxLayout>
+      </ng-template>
+    </ListView>
+  </PullToRefresh>
+</GridLayout>

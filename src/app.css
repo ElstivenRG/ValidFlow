@@ -1,0 +1,22 @@
+Page { background-color: #F3F6F4; color: #173B36; }
+ActionBar { background-color: #123E36; color: #FFFFFF; }
+Label, TextField, Button { font-family: sans-serif; }
+.screen { background-color: #F3F6F4; }
+.welcome { background-color: #E5F1EB; }
+.headline { font-size: 36; font-weight: bold; color: #123E36; margin-top: 12; }
+.title { font-size: 27; font-weight: bold; margin-bottom: 8; }
+.subtitle { font-size: 16; color: #47635C; margin-top: 12; margin-bottom: 16; }
+.eyebrow { font-size: 12; font-weight: bold; color: #0F766E; letter-spacing: 0.1; }
+.muted { font-size: 12; color: #5A716B; }
+.input { background-color: #FFFFFF; border-width: 1; border-color: #B9CEC5; border-radius: 12; padding: 12; margin-top: 8; margin-bottom: 10; color: #173B36; font-size: 16; }
+.primary { background-color: #0F766E; color: #FFFFFF; border-radius: 14; font-size: 16; font-weight: bold; padding: 14; margin-top: 16; }
+.primary:disabled { background-color: #90AAA0; color: #FFFFFF; }
+.card { background-color: #FFFFFF; margin: 6 16; padding: 12; border-radius: 16; }
+.thumbnail, .hero { border-radius: 14; }
+.item-title { font-size: 18; font-weight: bold; margin-top: 4; margin-bottom: 6; }
+.icon { font-size: 26; color: #0F766E; background-color: #E5F1EB; border-radius: 24; padding: 0; margin: 0; }
+.favorite { font-size: 42; color: #B47708; text-align: center; vertical-align: middle; }
+.form { background-color: #E5F1EB; padding: 18; border-radius: 16; }
+.field-label { font-size: 13; font-weight: bold; margin-top: 12; }
+.error { color: #B42318; font-size: 12; margin-bottom: 8; }
+.list { background-color: #F3F6F4; }

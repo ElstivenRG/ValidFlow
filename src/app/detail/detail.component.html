@@ -1,0 +1,41 @@
+<ActionBar title="Tu destino">
+  <NavigationButton text="Volver" android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>
+</ActionBar>
+<ScrollView class="screen">
+  <StackLayout padding="20">
+    <StackLayout *ngIf="place as item; else missing">
+      <Image [src]="item.image" height="210" stretch="aspectFill" class="hero"></Image>
+      <GridLayout columns="*,64" marginTop="20">
+        <StackLayout col="0">
+          <Label [text]="item.category" class="eyebrow"></Label>
+          <Label [text]="item.name" class="title" textWrap="true"></Label>
+        </StackLayout>
+        <Label col="1" [text]="item.favorite ? '★' : '☆'" class="favorite" width="60" height="60"
+          accessibilityRole="button" accessibilityLabel="Mantén pulsado para cambiar favorito"
+          (longPress)="toggleFavorite($event)"></Label>
+      </GridLayout>
+      <Label [text]="item.description" class="subtitle" textWrap="true"></Label>
+      <Label text="Mantén pulsada la estrella para cambiar favorito y animarla." class="muted" textWrap="true" marginBottom="20"></Label>
+      <StackLayout ngForm #editForm="ngForm" class="form">
+        <Label text="Personaliza tu plan" class="item-title"></Label>
+        <Label text="Nombre del destino" class="field-label"></Label>
+        <TextField name="name" [(ngModel)]="name" appPlaceName required #nameField="ngModel"
+          hint="Mínimo 3 caracteres" class="input" accessibilityLabel="Nombre del destino"></TextField>
+        <Label *ngIf="nameField.invalid && (nameField.dirty || nameField.touched)"
+          text="Escribe al menos 3 caracteres; los espacios exteriores no cuentan."
+          class="error" textWrap="true"></Label>
+        <Label text="Correo de contacto (opcional)" class="field-label"></Label>
+        <TextField name="email" [(ngModel)]="email" email #emailField="ngModel" keyboardType="email"
+          autocapitalizationType="none" autocorrect="false" hint="nombre@ejemplo.com" class="input"></TextField>
+        <Label *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)"
+          text="Introduce un correo válido." class="error"></Label>
+        <Button text="Guardar cambios" class="primary" [isEnabled]="editForm.valid === true" (tap)="save(editForm)"></Button>
+        <Label text="Los cambios se conservan mientras la app está abierta." class="muted" textWrap="true"></Label>
+      </StackLayout>
+    </StackLayout>
+    <ng-template #missing>
+      <Label text="Este destino no existe." class="title" textWrap="true"></Label>
+      <Button text="Volver al catálogo" class="primary" (tap)="back()"></Button>
+    </ng-template>
+  </StackLayout>
+</ScrollView>

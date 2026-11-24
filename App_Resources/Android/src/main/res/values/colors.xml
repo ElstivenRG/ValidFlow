@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="explora_background">#123E36</color>
+  <color name="explora_accent">#0F766E</color>
+  <color name="explora_surface">#F3F6F4</color>
+</resources>
